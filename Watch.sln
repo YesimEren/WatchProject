@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatcherAPI", "WatcherAPI\WatcherAPI.csproj", "{AC30C673-073A-4D05-9F65-6F794E6FD48A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatcherUI", "WatcherUI\WatcherUI.csproj", "{0A686B94-985E-4AFA-9B27-524A5619E5EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC30C673-073A-4D05-9F65-6F794E6FD48A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC30C673-073A-4D05-9F65-6F794E6FD48A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC30C673-073A-4D05-9F65-6F794E6FD48A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC30C673-073A-4D05-9F65-6F794E6FD48A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A686B94-985E-4AFA-9B27-524A5619E5EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A686B94-985E-4AFA-9B27-524A5619E5EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A686B94-985E-4AFA-9B27-524A5619E5EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A686B94-985E-4AFA-9B27-524A5619E5EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A6BFB7A-39F6-4957-97B6-3A637A79995C}
+	EndGlobalSection
+EndGlobal
