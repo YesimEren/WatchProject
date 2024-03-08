@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using Renci.SshNet;
 using System.Diagnostics;
 using WatcherAPI.Classes;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WatcherAPI.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class WatcherWebAPIController : ControllerBase
@@ -79,6 +81,8 @@ namespace WatcherAPI.Controllers
                 return false; // Bir hata oluştuğunda  sanal makine kapalı kabul edilsin
             }
         }
+
+        [Authorize]
 
         [HttpGet]
         public IActionResult GetAllVirtualMachines()
@@ -235,6 +239,7 @@ namespace WatcherAPI.Controllers
             }
         }
 
+       
         [HttpGet("memory/{host}")]
         public IActionResult GetMemoryUsage(string host)
         {

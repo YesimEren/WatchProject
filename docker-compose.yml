@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  watcher-api:
+    image: watcherapi:dev
+    ports:
+      - "8080:80"
+      - "8443:443"
+
+  watcher-ui:
+    image: watcherui:dev
+    ports:
+      - "8081:80"

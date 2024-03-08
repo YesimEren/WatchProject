@@ -16,6 +16,7 @@
     <title>WATCHER</title>
 
 
+
 </head>
 <body style="background-color: #ECEFF1;">
     <!-- Navigation Bar -->
@@ -250,6 +251,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             DockerStatus();
             getMemoryUsage();
+                 
 
             // Sanal makina seçildiğinde bellek verilerini tekrar al
             document.getElementById("virtualMachineSelect").addEventListener("change", function () {
@@ -309,6 +311,8 @@
                 });
 
         }
+
+        
 
         // Sanal makina durumuna göre metni güncelleyen fonksiyon
         function updateStatusText(isRunning) {

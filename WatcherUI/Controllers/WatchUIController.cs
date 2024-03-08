@@ -32,13 +32,12 @@ namespace WatcherUI.Controllers
         }
 
         [HttpGet]
-
         public IActionResult AddVirtualMachine()
         {
             return View();
         }
 
-        [HttpPost("Home/AddVirtualMachine")]
+        [HttpPost("WatchUI/AddVirtualMachine")]
         public IActionResult AddVirtualMachine(MachineInfo machineinfo)
         {
             if (ModelState.IsValid)
@@ -53,7 +52,7 @@ namespace WatcherUI.Controllers
                     ViewBag.SuccessMessage = "Başarılı bir şekilde eklendi.";
 
 
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "WatchUI");
                 }
                 catch (Exception ex)
                 {
@@ -65,8 +64,6 @@ namespace WatcherUI.Controllers
 
             return View(machineinfo);
         }
-
-
 
 
         private List<string> GetVirtualMachinesFromDatabase()

@@ -3,9 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatcherAPI", "WatcherAPI\WatcherAPI.csproj", "{AC30C673-073A-4D05-9F65-6F794E6FD48A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WatcherAPI", "WatcherAPI\WatcherAPI.csproj", "{AC30C673-073A-4D05-9F65-6F794E6FD48A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatcherUI", "WatcherUI\WatcherUI.csproj", "{0A686B94-985E-4AFA-9B27-524A5619E5EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WatcherUI", "WatcherUI\WatcherUI.csproj", "{0A686B94-985E-4AFA-9B27-524A5619E5EF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E004F1BC-F584-490A-9D88-E8243114B509}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JwtProject", "JwtProject", "{086A5441-C29F-41C8-BCAF-CC5F2747ECD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiJwt", "JwtProject\WebApiJwt\WebApiJwt.csproj", "{232DD283-C84D-4A73-A0BD-0D26CDFB3467}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +30,16 @@ Global
 		{0A686B94-985E-4AFA-9B27-524A5619E5EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A686B94-985E-4AFA-9B27-524A5619E5EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A686B94-985E-4AFA-9B27-524A5619E5EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{232DD283-C84D-4A73-A0BD-0D26CDFB3467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{232DD283-C84D-4A73-A0BD-0D26CDFB3467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{232DD283-C84D-4A73-A0BD-0D26CDFB3467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{232DD283-C84D-4A73-A0BD-0D26CDFB3467}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{232DD283-C84D-4A73-A0BD-0D26CDFB3467} = {086A5441-C29F-41C8-BCAF-CC5F2747ECD9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2A6BFB7A-39F6-4957-97B6-3A637A79995C}

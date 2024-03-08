@@ -9,7 +9,7 @@ namespace WatcherAPI.Classes
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=AS-TASKIN63;Database=WatchDb;User Id=sa;Password=1q2w3e4r+!;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Server=192.168.10.18;Database=WatchDb;User Id=sa;Password=1q2w3e4r+!;TrustServerCertificate=True");
         }
 
         public DbSet<Admin> Admins {  get; set; }

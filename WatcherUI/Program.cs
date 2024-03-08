@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 
 builder.Services.AddCors(options =>
 {
@@ -30,17 +31,22 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseRouting();
+
 app.UseCors("AllowAll");
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
-app.UseRouting();
 
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Login}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "WatchUI/{action=Index}/{id?}",
+    defaults: new { controller = "WatchUI" });
 
 app.Run();

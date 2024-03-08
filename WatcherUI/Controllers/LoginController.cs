@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using WatcherAPI.Classes;
+using System.Text.RegularExpressions;
 
 namespace WatcherUI.Controllers
 {
@@ -22,17 +23,36 @@ namespace WatcherUI.Controllers
         [HttpPost]
         public IActionResult Index(string username, string password)
         {
-            var values = _context.Admins.FirstOrDefault(x => x.Username == username && x.Password == password);
+            var user = _context.Admins.FirstOrDefault(x => x.Username.ToLower() == username.ToLower());
 
-            if (values == null)
-            {
-                return View();
-            }
-            else
+            if (user != null && PasswordMatches(user.Password, password) && UsernameMatches(user.Username, username))
             {
                 return RedirectToAction("Index", "WatchUI");
             }
+            else
+            {
+                return View();
+            }
         }
+
+        private bool PasswordMatches(string storedPassword, string enteredPassword)
+        {
+            // Şifre karşılaştırmasını gerçekleştirir.
+            // İhtiyaca göre şifre karmaşıklığı, büyük/küçük harf duyarlılığı kontrolü ekleyebilirsiniz.
+            return storedPassword == enteredPassword;
+        }
+
+        private bool UsernameMatches(string storedUsername, string enteredUsername)
+        {
+           
+            return storedUsername.Equals(enteredUsername, StringComparison.Ordinal);
+        }
+
+        //private bool IsPasswordComplexEnough(string password)
+        //{  
+        //  en az bir büyük harf, bir küçük harf, bir sayı ve bir özel karakter içermeli
+        //    return Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W).{8,}$");
+        //}
 
         [HttpGet]
         public IActionResult AddUsers()
@@ -70,9 +90,7 @@ namespace WatcherUI.Controllers
             // Çıkış yapıldıktan sonra tarayıcı önbelleğinden silme işlemi
             Response.Headers.Add("Cache-Control", "no-cache, no-store, must-revalidate");
             Response.Headers.Add("Pragma", "no-cache");
-            Response.Headers.Add("Expires", "0");
-
-            // Sayfayı tarayıcı geçmişinde bir sayfa olarak işaretleme
+            //Sayfayı tarayıcı geçmişinde bir sayfa olarak işaretleme
             Response.Headers.Add("Referrer-Policy", "no-referrer");
 
             // Çıkış yapıldıktan sonra yönlendirilecek sayfayı belirle
