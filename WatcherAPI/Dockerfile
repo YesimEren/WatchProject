@@ -1,22 +1,31 @@
-#See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
-WORKDIR /app
-EXPOSE 80
-EXPOSE 443
-
+﻿# Stage 1: Build the application
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["./WatcherAPI.csproj", "./"]
-RUN dotnet restore "WatcherAPI.csproj"
+
+# Copy the project files
+COPY ./WatcherAPI/WatcherAPI.csproj .
+
+WORKDIR /src
+# Restore dependencies
+RUN dotnet restore 
+
+# Copy the rest of the application code
 COPY . .
-#WORKDIR "/src/WatcherAPI"
-RUN dotnet build "./WatcherAPI.csproj" -c Release -o /app/build
 
+# Build the project
+RUN dotnet build ./WatcherAPI/WatcherAPI.csproj -c Release -o /app/build
+
+# Stage 2: Publish the application
 FROM build AS publish
-RUN dotnet publish "WatcherAPI.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish ./WatcherAPI/WatcherAPI.csproj -c Release -o /app/publish/WatcherApi /p:UseAppHost=false
 
-FROM base AS final
+# Stage 3: Create the final image
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
+COPY --from=publish /app/publish/WatcherApi .
+
+# Expose the port
+EXPOSE 80
+
+# Entry point
 ENTRYPOINT ["dotnet", "WatcherAPI.dll"]

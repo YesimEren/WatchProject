@@ -21,11 +21,11 @@ namespace WatcherUI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(string username, string password)
+        public IActionResult Index(string username, string password, string role)
         {
-            var user = _context.Admins.FirstOrDefault(x => x.Username.ToLower() == username.ToLower());
+            var user = _context.Admins.FirstOrDefault(x => x.Username.ToLower() == username.ToLower() && x.Role == role);
 
-            if (user != null && PasswordMatches(user.Password, password) && UsernameMatches(user.Username, username))
+            if (user != null && PasswordMatches(user.Password, password) && UsernameMatches(user.Username, username) && user.Role == role)
             {
                 return RedirectToAction("Index", "WatchUI");
             }

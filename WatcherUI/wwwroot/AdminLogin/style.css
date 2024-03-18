@@ -1,10 +1,9 @@
-*{
+* {
     margin: 0;
     padding: 0;
-    text-decoration: none ;
+    text-decoration: none;
     font-family: sans-serif;
     box-sizing: border-box;
-    
 }
 
 body {
@@ -12,10 +11,16 @@ body {
     min-height: 100vh;
 }
 
-.container{
+option[disabled]:first-child {
+    color: grey;
+    font-style: italic;
+}
+
+
+.container {
     width: 400px;
     background: #f1f1f1;
-    height: 620px;
+    height: 650px;
     padding: 80px 40px;
     border-radius: 30px;
     position: absolute;
@@ -24,21 +29,55 @@ body {
     transform: translate(-50%,-50%);
 }
 
-.txtb{
+.txtb {
     border-bottom: 2px solid #adadad;
     position: relative;
     margin: 30px 0;
 }
-.txtb input{
-    font-size: 15px;
-    color: #333;
-    border: none;
-    width: 100px;
-    outline: none;
-    background: none ;
-    padding: 10px;
-    height: 0 5px;
+
+    .txtb input {
+        font-size: 15px;
+        color: #333;
+        border: none;
+        width: 100px;
+        outline: none;
+        background: none;
+        padding: 10px;
+        height: 0 5px;
+    }
+
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
 }
+
+    .custom-dropdown select {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #adadad;
+        border-radius: 5px;
+        background-color: #b5d3e945;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+
+    .custom-dropdown::after {
+        content: '\1401'; /* Unicode karakteri - ok simgesi */
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        pointer-events: none; /* Ok simgesi tıklamayı engeller */
+        color: dimgray;
+    }
+
+.my-2 {
+    height:5px; /* İstediğiniz boşluğun yüksekliğini ayarlayın */
+}
+
+
 
 img.admin-img {
     margin-left: 45px;
@@ -49,20 +88,20 @@ img.admin-img {
     overflow: hidden; /* Gerektiğinde taşan içeriği gizler */
 }
 
-.logbtn{
+.logbtn {
     display: block;
     width: 100%;
     height: 50px;
     border: none;
-    background-image:linear-gradient(120deg,#3496db,#8444ad,#3495db) ;
+    background-image: linear-gradient(120deg,#3496db,#8444ad,#3495db);
     background-size: 200%;
     color: #f1f1f1;
     outline: none;
-    cursor: pointer;           /*  fare ile üstüne gelince renk değişikliği */
+    cursor: pointer; /*  fare ile üstüne gelince renk değişikliği */
     border-radius: 5px;
     transition: .5s;
 }
 
-.logbtn:hover{
-    background-position: right;
-}
+    .logbtn:hover {
+        background-position: right;
+    }

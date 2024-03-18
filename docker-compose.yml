@@ -1,13 +1,19 @@
 version: '3.8'
 
 services:
-  watcher-api:
-    image: watcherapi:dev
+  watcherapi:
+    image: yesimeren/project:watcherapi-v1
     ports:
-      - "8080:80"
-      - "8443:443"
+      - "8082:80"
+    networks:
+      - watcher-network
 
-  watcher-ui:
-    image: watcherui:dev
+  watcherui:
+    image: yesimeren/project:watcherui-v3
     ports:
-      - "8081:80"
+      - "8083:80"
+    networks:
+      - watcher-network
+
+networks:
+  watcher-network:

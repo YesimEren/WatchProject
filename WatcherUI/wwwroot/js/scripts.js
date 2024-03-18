@@ -7,7 +7,7 @@ function showVirtualMachineInfo() {
     document.getElementById("loadingMessage").style.display = "block";
 
     // AJAX isteği yaparak sanal makina durumunu kontrol et
-    fetch(`https://localhost:7071/api/WatcherWebAPI/${selectedVirtualMachine}`, {
+    fetch(`http://localhost:8082/api/WatcherWebAPI/${selectedVirtualMachine}`, {
         method: 'GET',
         mode: 'cors',
     })
@@ -67,7 +67,7 @@ function toggleVirtualMachineStatus() {
     document.getElementById("loadingMessage").style.display = "block";
 
     // AJAX isteği yaparak sanal makina durumunu kontrol et ve değiştir
-    fetch(`https://localhost:7071/api/WatcherWebAPI/${selectedVirtualMachine}/toggle`,
+    fetch(`http://localhost:8082/api/WatcherWebAPI/${selectedVirtualMachine}/toggle`,
         {
             method: 'POST',
             mode: 'cors',
@@ -111,7 +111,7 @@ function DockerStatus() {
     document.getElementById("loadingMessage").style.display = "block";
 
     // AJAX isteği yaparak Docker durumunu kontrol et
-    fetch(`https://localhost:7071/api/WatcherWebAPI/docker/${selectedVirtualMachine}`, {
+    fetch(`http://localhost:8082/api/WatcherWebAPI/docker/${selectedVirtualMachine}`, {
         method: 'GET',
         mode: 'cors',
 
@@ -162,7 +162,7 @@ function getMemoryUsage() {
     // document.getElementById("loadingMessage").innerText = "Veriler alınıyor...";
     // document.getElementById("loadingMessage").style.display = "block";
 
-    fetch(`http://localhost:7071/api/WatcherWebAPI/memory/${selectedVirtualMachine}`)
+    fetch(`http://localhost:8082/api/WatcherWebAPI/memory/${selectedVirtualMachine}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);

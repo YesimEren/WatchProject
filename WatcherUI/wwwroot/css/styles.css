@@ -1,4 +1,4 @@
-﻿.circle {
+﻿﻿.circle {
     /*width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -54,7 +54,7 @@
     color: white !important;
     background-color: rgba(176, 190, 197, 0.2);
     padding: 15px;
-    border-radius: 50px;
+    border-radius: 100px;
     width: 200px; /* İstenilen genişlik */
     text-align: center; /* Metni merkeze hizala */
 }
